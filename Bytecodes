@@ -1,0 +1,268 @@
+Java code:
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {3, 7, 19, 2, 6, 27};
+        bubbleSort(arr);
+    }
+
+    public static void bubbleSort(int[] arr)
+    {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++)
+        {
+            for (int j = 0; j < n - i - 1; j++)
+            {
+                if (arr[j] > arr[j + 1])
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
+
+Java bytecode:
+
+Compiled from "Main.java"
+public class Main {
+  public Main();
+    Code:
+       0: aload_0							//load a reference onto the stack from local variable 0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return							//return void from method
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: bipush        6					//push a byte onto the stack as an integer value
+       2: newarray       int				//create new array with count elements of primitive type identified by atype
+       4: dup								//duplicate the value on top of the stack
+       5: iconst_0							//load the int value 0 onto the stack
+       6: iconst_3							//load the int value 3 onto the stack
+       7: iastore							//store an int into an array
+       8: dup								//duplicate the value on top of the stack
+       9: iconst_1							//load the int value 1 onto the stack
+      10: bipush        7					//push a byte onto the stack as an integer value
+      12: iastore							//store an int into an array
+      13: dup								//duplicate the value on top of the stack
+      14: iconst_2							//load the int value 2 onto the stack
+      15: bipush        19					//push a byte onto the stack as an integer value
+      17: iastore							//store an int into an array
+      18: dup								//duplicate the value on top of the stack
+      19: iconst_3							//load the int value 3 onto the stack
+      20: iconst_2							//load the int value 2 onto the stack
+      21: iastore							//store an int into an array
+      22: dup								//duplicate the value on top of the stack
+      23: iconst_4							//load the int value 4 onto the stack
+      24: bipush        6					//push a byte onto the stack as an integer value
+      26: iastore							//store an int into an array
+      27: dup								//duplicate the value on top of the stack
+      28: iconst_5							//load the int value 5 onto the stack
+      29: bipush        27					//push a byte onto the stack as an integer value
+      31: iastore							//store an int into an array
+      32: astore_1							//store a reference into local variable 1
+      33: aload_1							//load a reference onto the stack from local variable 1
+      34: invokestatic  #7                  //Method bubbleSort:([I)V
+      37: return							//return void from method
+
+  public static void bubbleSort(int[]);
+    Code:
+       0: aload_0							//load a reference onto the stack from local variable 0
+       1: arraylength						//get the length of an array
+       2: istore_1							//store int value into variable 1
+       3: iconst_0							//load the int value 0 onto the stack
+       4: istore_2							//store int value into variable 2
+       5: iload_2							//load an int value from local variable 2
+       6: iload_1							//load an int value from local variable 1
+       7: iconst_1							//load the int value 1 onto the stack
+       8: isub								//int subtract
+       9: if_icmpge     66					//if value1 is greater than or equal to value2, branch to instruction at branchoffset
+      12: iconst_0							//load the int value 0 onto the stack
+      13: istore_3							//store a long value in a local variable 3
+      14: iload_3							//load an int value from local variable 3
+      15: iload_1							//load an int value from local variable 1
+      16: iload_2							//load an int value from local variable 2
+      17: isub								//int subtract
+      18: iconst_1							//load the int value 1 onto the stack
+      19: isub								//int subtract
+      20: if_icmpge     60					//if value1 is greater than or equal to value2, branch to instruction at branchoffset
+      23: aload_0							//load a reference onto the stack from local variable 0
+      24: iload_3							//load an int value from local variable 3
+      25: iaload							//load an int from an array
+      26: aload_0							//load a reference onto the stack from local variable 0
+      27: iload_3							//load an int value from local variable 3
+      28: iconst_1							//load the int value 1 onto the stack
+      29: iadd								//add two ints
+      30: iaload							//load an int from an array
+      31: if_icmple     54					//if value1 is less than or equal to value2, branch to instruction at branchoffset
+      34: aload_0							//load a reference onto the stack from local variable 0
+      35: iload_3							//load an int value from local variable 3
+      36: iaload							//load an int from an array
+      37: istore        4					//store a long value in a local variable #index
+      39: aload_0							//load a reference onto the stack from local variable 0
+      40: iload_3							//load an int value from local variable 3
+      41: aload_0							//load a reference onto the stack from local variable 0
+      42: iload_3							//load an int value from local variable 3
+      43: iconst_1							//load the int value 1 onto the stack
+      44: iadd								//add two ints
+      45: iaload							//load an int from an array
+      46: iastore							//store an int into an array
+      47: aload_0							//load a reference onto the stack from local variable 0
+      48: iload_3							//load an int value from local variable 3
+      49: iconst_1							//load the int value 1 onto the stack
+      50: iadd								//add two ints
+      51: iload         4					//load an int value from a local variable #index
+      53: iastore							//store an int into an array
+      54: iinc          3, 1				//increment local variable #index by signed byte const
+      57: goto          14					//goes to another instruction at branchoffset
+      60: iinc          2, 1				//increment local variable #index by signed byte const
+      63: goto          5					//goes to another instruction at branchoffset
+      66: return							//return void from method
+}
+
+Kotlin code:
+
+fun main(args: Array<String>) {
+    val arr = intArrayOf(3, 7, 19, 2, 6, 27)
+    bubbleSort(arr)
+}
+
+fun bubbleSort(arr: IntArray) {
+    val n = arr.size
+    for (i in 0 until n - 1) {
+        for (j in 0 until n - i - 1) {
+            if (arr[j] > arr[j + 1]) {
+                val temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp
+            }
+        }
+    }
+}
+
+Kotlin bytecode:
+
+  public static final void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=4, locals=2, args_size=1
+         0: aload_0
+         1: ldc           #9                  // String args
+         3: invokestatic  #15                 // Method kotlin/jvm/internal/Intrinsics.checkParameterIsNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+         6: bipush        6
+         8: newarray       int
+        10: dup
+        11: iconst_0
+        12: iconst_3
+        13: iastore
+        14: dup
+        15: iconst_1
+        16: bipush        7
+        18: iastore
+        19: dup
+        20: iconst_2
+        21: bipush        19
+        23: iastore
+        24: dup
+        25: iconst_3
+        26: iconst_2
+        27: iastore
+        28: dup
+        29: iconst_4
+        30: bipush        6
+        32: iastore
+        33: dup
+        34: iconst_5
+        35: bipush        27
+        37: iastore
+        38: astore_1
+        39: aload_1
+        40: invokestatic  #19                 // Method bubbleSort:([I)V
+        43: return
+      LineNumberTable:
+        line 2: 6
+        line 3: 39
+        line 4: 43
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           39       5     1   arr   [I
+            0      44     0  args   [Ljava/lang/String;
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+        0: #7()
+          org.jetbrains.annotations.NotNull
+
+  public static final void bubbleSort(int[]);
+    descriptor: ([I)V
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Code:
+      stack=5, locals=7, args_size=1
+         0: aload_0
+         1: ldc           #23                 // String arr
+         3: invokestatic  #15                 // Method kotlin/jvm/internal/Intrinsics.checkParameterIsNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+         6: aload_0
+         7: arraylength
+         8: istore_1
+         9: iconst_0
+        10: istore_2
+        11: iload_1
+        12: iconst_1
+        13: isub
+        14: istore_3
+        15: iload_2
+        16: iload_3
+        17: if_icmpge     86
+        20: iconst_0
+        21: istore        4
+        23: iload_1
+        24: iload_2
+        25: isub
+        26: iconst_1
+        27: isub
+        28: istore        5
+        30: iload         4
+        32: iload         5
+        34: if_icmpge     80
+        37: aload_0
+        38: iload         4
+        40: iaload
+        41: aload_0
+        42: iload         4
+        44: iconst_1
+        45: iadd
+        46: iaload
+        47: if_icmple     74
+        50: aload_0
+        51: iload         4
+        53: iaload
+        54: istore        6
+        56: aload_0
+        57: iload         4
+        59: aload_0
+        60: iload         4
+        62: iconst_1
+        63: iadd
+        64: iaload
+        65: iastore
+        66: aload_0
+        67: iload         4
+        69: iconst_1
+        70: iadd
+        71: iload         6
+        73: iastore
+        74: iinc          4, 1
+        77: goto          30
+        80: iinc          2, 1
+        83: goto          15
+        86: return
+
+Roznice pomiedzy oba kodami:
+
+- Instrukcje inicjalizacji: W bytecode dla klasy Java (Main) istnieje konstruktor bezargumentowy (public Main()) wywoływany za pomocą instrukcji invokespecial.
+Natomiast w bytecode dla klasy Kotlin, konstruktor bezargumentowy nie jest widoczny, a zamiast tego jest zastosowana instrukcja checkParameterIsNotNull, która sprawdza, czy przekazane argumenty nie są puste.
+- Opis lokalnych zmiennych: Opis lokalnych zmiennych w bytecode dla klasy Java jest podany za pomocą indeksów (0, 1, itd.), podczas gdy w bytecode dla klasy Kotlin jest używana nazwa (arr, args, itd.) oraz indeksy.
+- Instrukcje skoku: Obie klasy mają instrukcje skoku, takie jak goto i if_icmpge, jednakże etykiety skoków są różne w obu przypadkach.
+- Bytecode dla klasy Kotlin zawiera adnotacje (@NotNull) dla parametrów metody main, które są niewidoczne w bytecode dla klasy Java.
